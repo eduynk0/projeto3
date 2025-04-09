@@ -6,9 +6,9 @@ class Main {
         Scanner teclado = new Scanner(System.in);
         Random gerador = new Random();
         
-        boolean jd = true;
+        char jd = 's';
         
-        while (jd) {
+        while (jd == 's') {
             int random = gerador.nextInt(100) + 1;
             int tentativas = 1;
             int palpite = 0;
@@ -29,20 +29,9 @@ class Main {
             System.out.println(random + " é a resposta, " + tentativas + " tentativas.");
             System.out.print("Quer jogar de novo? [s] [n]: ");
             
-            char dnv = teclado.next().charAt(0);
-            
-            switch (dnv) {
-                case 's':
-                    jd = true;
-                    break;
-                case 'n':
-                    jd = false;
-                    System.out.println("Jogo encerrado!");
-                    break;
-                default:
-                    System.out.println("Resposta inválida! Jogo encerrado!");
-                    jd = false;
-            }
+            jd = teclado.next().charAt(0);
         }
+        
+        System.out.println("Jogo encerrado!");
     }
 }
